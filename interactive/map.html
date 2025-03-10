@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart City Interactive Map</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 40px;
+        }
+        .navbar {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .navbar a {
+            margin-right: 15px;
+            color: #3498db;
+            text-decoration: none;
+        }
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+        #map {
+            width: 100%;
+            height: 600px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="../index.html">Home</a> | 
+        <a href="../README.html">ReadMe</a> | 
+        <a href="../interactive/map.html">Interactive Map</a> |
+        <a href="../reflection.html">Reflection</a>
+    </div>
+
+    <h1>Smart City Interactive Map</h1>
+    <div id="map"></div>
+
+    <script>
+        var map = L.map('map').setView([20, 0], 2); // Center the map
+
+        // Add CartoDB Positron map layer (clean, modern, and English labels)
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; <a href="https://carto.com/">CartoDB</a> contributors',
+            subdomains: 'abcd'
+        }).addTo(map);
+
+        // Red Marker - Bristol, United Kingdom (Issues)
+        L.marker([51.4545, -2.5879], {icon: L.icon({iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png'})}).addTo(map)
+            .bindPopup("<b>Bristol, United Kingdom</b><br>"
+            + "- Faced issues with fragmented governance and lack of coordination.<br>"
+            + "- Independent projects struggled to align with sustainability goals.<br>"
+            + "- Highlighted concerns about social inequalities in smart city design.<br>"
+            + "<a href='../issues/summary.html' target='_blank'>Article Summary</a>");
+
+        // Red Marker - Manchester, United Kingdom (Issues)
+        L.marker([53.4808, -2.2426], {icon: L.icon({iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png'})}).addTo(map)
+            .bindPopup("<b>Manchester, United Kingdom</b><br>"
+            + "- Faced fragmented development due to isolated initiatives.<br>"
+            + "- Struggled to maintain coordinated smart city governance.<br>"
+            + "- Environmental concerns were overlooked in certain projects.<br>"
+            + "<a href='../issues/summary.html' target='_blank'>Article Summary</a>");
+
+        // Red Marker - Glasgow, United Kingdom (Issues)
+        L.marker([55.8642, -4.2518], {icon: L.icon({iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png'})}).addTo(map)
+            .bindPopup("<b>Glasgow, United Kingdom</b><br>"
+            + "- Implemented the ‘Future City’ programme for improved coordination.<br>"
+            + "- Focused on digital urban management, traffic control, and public safety.<br>"
+            + "- Faced governance challenges in integrating multiple initiatives.<br>"
+            + "<a href='../issues/summary.html' target='_blank'>Article Summary</a>");
+
+        // Green Marker - Milton Keynes, United Kingdom (Solutions)
+        L.marker([52.0406, -0.7594], {icon: L.icon({iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png'})}).addTo(map)
+            .bindPopup("<b>Milton Keynes, United Kingdom</b><br>"
+            + "- Successfully implemented data-driven urban planning strategies.<br>"
+            + "- Integrated IoT and spatial data to improve public services.<br>"
+            + "- Focused on smart mobility solutions and environmental sustainability.<br>"
+            + "<a href='../solutions/summary.html' target='_blank'>Article Summary</a>");
+
+        // Green Marker - Singapore (Solutions)
+        L.marker([1.3521, 103.8198], {icon: L.icon({iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png'})}).addTo(map)
+            .bindPopup("<b>Singapore</b><br>"
+            + "- Developed the comprehensive Smart Nation initiative.<br>"
+            + "- Successfully integrated GIS, IoT, and smart data solutions.<br>"
+            + "- Prioritized citizen engagement and digital literacy.<br>"
+            + "<a href='../solutions/summary.html' target='_blank'>Article Summary</a>");
+    </script>
+</body>
+</html>
